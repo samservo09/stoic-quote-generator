@@ -11,5 +11,3 @@ stoic_data = response_API.text
 
 # parse data into JSON format
 parse_json = json.loads(stoic_data)
-
-# extract data
