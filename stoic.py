@@ -2,6 +2,8 @@
 # connect to an API
 import requests
 import json
+import smtplib
+from email.message import EmailMessage
 
 response_API = requests.get('https://stoic.tekloon.net/stoic-quote')
 #print(response_API.status_code) #if 200, it is success
