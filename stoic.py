@@ -2,6 +2,8 @@
 import requests
 import json
 import smtplib
+import time
+import schedule
 from email.message import EmailMessage
 
 # connect to an API and fetch a stoic quote
@@ -40,11 +42,27 @@ def email_message(subject, body, to):
     server.login(user, password)
     server.send_message(msg)
     server.quit()
-    
+
+# function to send scheduled email
+#def send_email_at(send_time):
+    #time.sleep(send_time.timestamp() - #time.time())
+  
 print("Do you want to receive emails about stoicism?")
 
 gmail_acc = input("Enter your gmail account: ")
 
+#send_time = input("What frequency do you want to receive emails? \n[1] 1 Week \n[2]2 weeks \n[3]3 Weeks \n[4]1 Month:\n")
 
 if __name__ == '__main__':
     email_message("Hello! Here is your daily stoic message!", body_content, gmail_acc)
+    
+# closing
+print("You are now subscribed to receive daily stoic quotes in your email!")
+
+# set the schedule of sending
+schedule.every().day.at("19:15").do(email_message)
+
+# keep the script running
+while True:
+    schedule.run_pending()
+    time.sleep(1)
