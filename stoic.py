@@ -1,21 +1,26 @@
 
-# connect to an API
 import requests
 import json
 import smtplib
 from email.message import EmailMessage
 
-response_API = requests.get('https://stoic.tekloon.net/stoic-quote')
-#print(response_API.status_code) #if 200, it is success
+# connect to an API and fetch a stoic quote
+def fetch_quote():
+    response = requests.get('https://stoic.tekloon.net/stoic-quote') #if 200, it is success
+    if response.status_code == 200:
+        stoic_data = response.text
+        return json.loads(stoic_data)
+    else:
+        print("Failed to fetch quote. Status code: ", response)
+        return None
+    
+# fetch a stoic quote
+stoic_quote = fetch_quote()
 
-# get data from API
-stoic_data = response_API.text 
-
-# parse data into JSON format
-parse_json = json.loads(stoic_data)
-
-# convert the body dictionary into a string
-body_content = f"{parse_json['quote']} - {parse_json['author']}"
+# convert the dictionary into a readable format
+author = stoic_quote.get('author')
+quote = stoic_quote.get('quote')
+body_content = f"{quote} - {author}"
 
 # function to send the email
 def email_message(subject, body, to):
