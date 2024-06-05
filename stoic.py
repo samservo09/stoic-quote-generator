@@ -16,13 +16,16 @@ def fetch_quote():
         print("Failed to fetch quote. Status code: ", response)
         return None
     
-# fetch a stoic quote
-stoic_quote = fetch_quote()
-
-# convert the dictionary into a readable format
-author = stoic_quote.get('author')
-quote = stoic_quote.get('quote')
-body_content = f"{quote} - {author}"
+# function to fetch a stoic quote
+def email_stoic_quote():
+    stoic_quote = fetch_quote()
+    if stoic_quote:
+    # convert the dictionary into a readable format
+        author = stoic_quote.get('author')
+        quote = stoic_quote.get('quote')
+        body_content = f"{quote} - {author}"
+    # send the email
+    email_message("Hello! Here is your daily stoic message!", body_content, gmail_acc)
 
 # function to send the email
 def email_message(subject, body, to):
@@ -38,29 +41,22 @@ def email_message(subject, body, to):
     
     # set server parameters
     server = smtplib.SMTP("smtp.gmail.com", 587)
-    server.starttls()
+    server.ehlo() # ensure connection is secure and no information leakage
+    server.starttls() # enable encryption for the connection with TLS 
     server.login(user, password)
     server.send_message(msg)
     server.quit()
 
-# function to send scheduled email
-#def send_email_at(send_time):
-    #time.sleep(send_time.timestamp() - #time.time())
-  
+# main 
 print("Do you want to receive emails about stoicism?")
 
 gmail_acc = input("Enter your gmail account: ")
-
-#send_time = input("What frequency do you want to receive emails? \n[1] 1 Week \n[2]2 weeks \n[3]3 Weeks \n[4]1 Month:\n")
-
-if __name__ == '__main__':
-    email_message("Hello! Here is your daily stoic message!", body_content, gmail_acc)
     
 # closing
 print("You are now subscribed to receive daily stoic quotes in your email!")
 
 # set the schedule of sending
-schedule.every().day.at("19:15").do(email_message)
+schedule.every().day.at("17:56").do(email_stoic_quote)
 
 # keep the script running
 while True:
