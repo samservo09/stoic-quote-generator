@@ -66,7 +66,9 @@ def main():
     
     send_time = input("What time of the day would you like to receive the your stoicism quote? [MILITARY TIME]: ")
     
-    int(duration = input("Until when would you like to receive daily email? Enter the the number of DAYS: "))
+    str_duration = input("Until when would you like to receive daily email? Enter the the number of DAYS: ")
+    
+    duration = int(str_duration)
     
     # closing
     print("You are now subscribed to receive daily stoic quotes in your email!")
