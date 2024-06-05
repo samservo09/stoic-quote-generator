@@ -72,6 +72,8 @@ def main():
     
     # closing
     print("You are now subscribed to receive daily stoic quotes in your email!")
+    
+    return gmail_acc, duration
 
 # function to set the schedule of sending
 def set_sched(days_sent, duration):
