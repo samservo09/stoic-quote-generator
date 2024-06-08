@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Stoicism Quote Generator</title>
+        <link rel="stylesheet" href="static\style.css">
+    </head>
+    <body>
+    <h1>STOICISM QUOTE GENERATOR</h1>
+    <h3>Want to receive daily stoic email? Let's go!</h3>
+    <img src="stoic.jpg">
+    <br>
+    <form action="receive_email" method="post">
+        <!--Gmail account-->
+        <p>Enter your gmail account</p>
+        <input type="text" name="gmail_acc">
+        
+        <!--Set time to receive daily email-->
+        <br><br>
+        <p>What time of the day would you like to receive the your stoicism quote? [MILITARY TIME]</p>
+        <input type="text" name="send_time">
+
+        <!--Set number of days to receive daily email-->
+
+        <br><br>
+        <p>Until when would you like to receive daily email? Enter the the number of DAYS</p>
+        <input type="text" name="str_duration">
+        
+        <input type="submit" value="Send me my stoic email!" idea="receive_email">
+    </form>
+    </body>
+</html>
