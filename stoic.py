@@ -76,8 +76,8 @@ def main():
     return gmail_acc, duration
 
 # function to set the schedule of sending
-def set_sched(days_sent, duration):
-    schedule.every().day.at(send_time).do(email_stoic_quote)
+def set_sched(gmail_acc, days_sent, duration):
+    schedule.every().day.at(send_time).do(email_stoic_quote, gmail_acc=gmail_acc, duration=duration)
     # keep the script running
     while days_sent < duration:
         schedule.run_pending()
@@ -85,4 +85,4 @@ def set_sched(days_sent, duration):
 
 # START MAIN PROGRAM
 main()
-set_sched(days_sent, duration)
+set_sched(gmail_acc, days_sent, duration)
