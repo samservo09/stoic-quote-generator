@@ -9,4 +9,31 @@ h1, h3, p{
 
 h1 {
     background-color: rgb(0, 28, 65);
+    padding: 15px;
+}
+
+h3 {
+    color:rgb(26, 33, 41)
+}
+
+.resized-image{
+    width: 25%; 
+    height: 25%;
+}
+
+.hover-button{
+    background-color: rgb(0, 28, 65); /* Blue background */
+    border: none; /* No border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline-block element */
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.hover-button:hover {
+    background-color: #005f6b; /* Darker blue on hover */
 }
