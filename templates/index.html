@@ -13,18 +13,18 @@
     <form action="receive_email" method="post">
         <!--Gmail account-->
         <p>Enter your gmail account</p>
-        <input type="text" name="gmail_acc">
+        <input type="email" name="gmail_acc" required>
         
         <!--Set time to receive daily email-->
         <br><br>
         <p>What time of the day would you like to receive the your stoicism quote? [MILITARY TIME]</p>
-        <input type="text" name="send_time">
+        <input type="text" name="send_time" required>
 
         <!--Set number of days to receive daily email-->
 
         <br><br>
         <p>Until when would you like to receive daily email? Enter the the number of DAYS</p>
-        <input type="text" name="str_duration">
+        <input type="number" name="str_duration" required>
         
         <br><br><br>
         <input type="submit" value="Send me my stoic email!" idea="receive_email" class="hover-button">
