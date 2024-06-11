@@ -10,7 +10,7 @@
     <h3><i>Want to receive daily stoic email? Let's go!</i></h3>
     <img src="static\stoic.jpg" alt="Zeno of Citium, the founder of the Stoic school of philosophy in ancient Greece" class="resized-image">
     <br>
-    <form action="receive_email" method="post">
+    <form action="{{ url_for('process') }}" method="post">
         <!--Gmail account-->
         <p>Enter your gmail account</p>
         <input type="email" name="gmail_acc" required>

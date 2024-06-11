@@ -26,12 +26,5 @@ def process():
         # redirect user to avoid form resubmission
         return redirect(url_for('index'))
 
-@app.route('/receive_email', methods=["POST"])
-def receive_email():
-    if request.method == "POST":
-        # handle incoming email data
-        
-        return 'Email received successfully'
-
 if __name__ == '__main__':
     app.run(debug=True)
