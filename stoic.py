@@ -84,5 +84,5 @@ def set_sched(gmail_acc, days_sent, duration):
         time.sleep(1)
 
 # START MAIN PROGRAM
-main()
-set_sched(gmail_acc, days_sent, duration)
+"""main()
+set_sched(gmail_acc, days_sent, duration)"""
