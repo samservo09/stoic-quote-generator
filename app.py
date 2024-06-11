@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-from stoic import set_sched, main
+from stoic import set_sched
 
 app = Flask(__name__) # creates a class for our app
 app.secret_key = 'syqcdtlejotfsldn'
@@ -17,7 +17,6 @@ def process():
         str_duration = request.form['str_duration']
         
         # call the functions to process sending stoic emails
-        main()
         set_sched(gmail_acc, send_time, str_duration)
         
         # feedback to the user

@@ -56,33 +56,10 @@ def email_message(subject, body, to):
     server.send_message(msg)
     server.quit()
 
-# function for the main code
-def main():
-    global gmail_acc, send_time, duration
-    
-    print("Want to receive daily stoic email? Let's go!")
-    
-    gmail_acc = input("Enter your gmail account: ")
-    
-    send_time = input("What time of the day would you like to receive the your stoicism quote? [MILITARY TIME]: ")
-    
-    str_duration = input("Until when would you like to receive daily email? Enter the the number of DAYS: ")
-    
-    duration = int(str_duration)
-    
-    # closing
-    print("You are now subscribed to receive daily stoic quotes in your email!")
-    
-    return gmail_acc, duration
-
 # function to set the schedule of sending
-def set_sched(gmail_acc, days_sent, duration):
+def set_sched(gmail_acc, send_time, days_sent, duration):
     schedule.every().day.at(send_time).do(email_stoic_quote, gmail_acc=gmail_acc, duration=duration)
     # keep the script running
     while days_sent < duration:
         schedule.run_pending()
         time.sleep(1)
-
-# START MAIN PROGRAM
-"""main()
-set_sched(gmail_acc, days_sent, duration)"""
