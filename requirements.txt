@@ -23,9 +23,9 @@ pyperclip==1.8.2
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
 pytz==2024.1
-pywin32==306
 requests==2.2.1
 schedule==1.2.2
+streamlit==3.19.2
 six==1.16.0
 sortedcontainers==2.4.0
 stringcase==1.2.0
