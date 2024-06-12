@@ -23,7 +23,7 @@ pyperclip==1.8.2
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
 pytz==2024.1
-requests==2.2.1
+requests==2.32.2
 schedule==1.2.2
 streamlit==1.35.0
 six==1.16.0
