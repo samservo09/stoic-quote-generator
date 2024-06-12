@@ -12,13 +12,12 @@ def index():
 def process():
     if request.method == 'POST':
         # get the inputted data from the form
-        days_sent = 0
         gmail_acc = request.form['gmail_acc']
         send_time = request.form['send_time']
         str_duration = request.form['str_duration']
         
-        # call the functions to process sending stoic emails
-        set_sched(gmail_acc, send_time, days_sent, str_duration)
+        # call the stoic.py script to process sending stoic emails
+        subprocess.Popen(['python3', 'stoic.py', gmail_acc, send_time, str_duration])
         
         # feedback to the user
         flash("You are now subscribed to receive daily stoic emails!", "Success!")
