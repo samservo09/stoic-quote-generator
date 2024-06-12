@@ -5,11 +5,11 @@ import smtplib
 import time
 import schedule
 from email.message import EmailMessage
+import sys
 
 # initialize
 
 days_sent = 0
-duration = 0
 
 # connect to an API and fetch a stoic quote
 def fetch_quote():
@@ -57,9 +57,21 @@ def email_message(subject, body, to):
     server.quit()
 
 # function to set the schedule of sending
-def set_sched(gmail_acc, send_time, days_sent, duration):
+def set_sched(gmail_acc, send_time, str_duration):
+    duration = int(str_duration)
     schedule.every().day.at(send_time).do(email_stoic_quote, gmail_acc=gmail_acc, duration=duration)
     # keep the script running
     while days_sent < duration:
         schedule.run_pending()
         time.sleep(1)
+        
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: python stoic.py <gmail_acc> <send_time> <duration>")
+        sys.exit(1)
+        
+    gmail_acc = sys.argv[1]
+    send_time = sys.argv[2]
+    str_duration = sys.argv[3]
+    
+    set_sched(gmail_acc, send_time, str_duration)
